@@ -10,8 +10,16 @@
 	#define false	0
 #endif
 
-#ifndef SEM_ESPAÇO 
-	#define SEM_ESPAÇO	-1 
+#ifndef VAGA_LIVRE
+	#define VAGA_LIVRE	-2
+#endif
+
+#ifndef SEM_VAGA 
+	#define SEM_VAGA	-1 
+#endif
+
+#ifndef HORARIO_VAGO
+	#define HORARIO_VAGO	'\0'
 #endif
 
 #ifndef TIPO_INVALIDO
@@ -71,7 +79,7 @@ int input_char(void);
  * @param: tipo - Tipo da lista ('P' para individuo e 'D' para disciplina).
  * @param: t - Tamanho máximo da lista
  *
- * @return: Index vazio em sucesso, SEM_VAGA se não houver vaga, TIPO_INVALIDO se *tipo* não for 'P' ou 'D'.
+ * @return: Index do espaço vazio em sucesso, SEM_VAGA se não houver vaga, TIPO_INVALIDO se *tipo* não for 'P' ou 'D'.
  *
  * @par @note:
  * Verifica um vetor (lista) de tamanho fornecido pelo código (tam) procurando por, caso seja um
@@ -81,6 +89,11 @@ int input_char(void);
  * O objetivo dessa função é retornar o index para um vetor que conterá: Alunos, Professores ou Disciplinas para que
  * possa ser cadastrado um novo item para o vetor. Caso o vetor esteja cheio (sem espaço para cadastro), irá retornar a
  * macro de vetor cheio e caso o tipo seja especificado incorretamente, irá retornar a macro de tipo inválido.
+ *
+ * @par @note
+ * A função busca, para o tipo indivíduo, um valor de matrícula == VAGA_LIVRE (0) e, para o tipo disciplina, busca o
+ * valor codigo[0] == HORARIO_VAGO (\0)  (Busca o primeiro caractere como um NULL Terminator). Esses são os critérios
+ * para determinar se há ou não espaço para um novo Aluno/Professor ou Disciplina
  */
 int procura_vaga(void* lista, size_t tam, char tipo);
 

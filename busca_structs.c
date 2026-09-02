@@ -34,7 +34,7 @@ int procura_vaga (void* lista, size_t tam, char tipo) {
 		Individuo* p = (Individuo*)lista;
 
 		for (int i = 0; i < tam; ++i) {
-			if (p[i].matricula == 0) {
+			if (p[i].matricula == VAGA_LIVRE) {
 				return i;
 			}
 		}
@@ -44,7 +44,7 @@ int procura_vaga (void* lista, size_t tam, char tipo) {
 		Disciplina* p = (Disciplina*)lista;
 
 		for (int i = 0; i < tam; ++i) {
-			if (p[i].codigo[0] == '\0') { 
+			if (p[i].codigo[0] == HORARIO_VAGO) { 
 				return i;
 			}
 		}
@@ -53,5 +53,5 @@ int procura_vaga (void* lista, size_t tam, char tipo) {
 		return TIPO_INVALIDO;
 	}
 
-	return SEM_ESPAÇO;
+	return SEM_VAGA;
 }
