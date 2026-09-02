@@ -1,33 +1,18 @@
 #include <stdio.h>
-#include "busca_structs.h"
+#include <string.h>
 #include <termios.h>
-#include <unistd.h>
+#include "busca_structs.h"
 
-#define true	1
-#define false	0
 
-void input_string(char *string, size_t t);
-int input_char();
-int procura_vaga (void* lista, size_t t, char tipo);
+void clean_buffer() {
+	int c;
+	while ((c = getchar()) != '\n' && c != EOF);
+}
 
-struct Individuo{
-	char*		nome;		// Nota: Não tentem escrever nada por cima disso.
-	Disciplina*	disciplinas;	// Lista de disciplinas do individuo.
-	unsigned int	n_disciplinas;	// Número de disciplinas do individuo.
-	unsigned int	matricula;	// Matrícula. Também usa pro professor.
-	unsigned int	nascimento;	// Data de nascimento no padrão DDMMYY.
-	unsigned int	cpf;		// CPF do indivíduo.
-	char		genero;		// F | M  -> Feminino | Masculino.
-	char		eh_doscente;	// true -> Professor | false -> Aluno.
-	
-};
-
-struct Disciplina {
-	char*		nome;		// Nome da disciplina.
-	char*		codigo;		// Código da disciplina. Ex: INF029
-	Individuo*	professor;	// Ponteiro para Professor responsável
-	Individuo*	lista_alunos;	// Lista de alunos matriculados
-};
+void input_string(char* string, size_t t) {
+	fgets(string, t, stdin);
+	string[strcspn(string, "\n")] = '\0';
+}
 
 int input_char() {
 	struct termios old_t;
@@ -45,7 +30,7 @@ int input_char() {
 }
 
 int procura_vaga (void* lista, size_t t, char tipo) {
-	if (tipo == 'P') {
+	if (tipo == 'P' || tipo == 'p') {
 		Individuo* p = (Individuo*)lista;
 
 		for (int i = 0; i < t; ++i) {
@@ -55,7 +40,7 @@ int procura_vaga (void* lista, size_t t, char tipo) {
 		}
 	}
 
-	else if (tipo == 'D') {
+	else if (tipo == 'D' || tipo == 'd') {
 		Disciplina* p = (Disciplina*)lista;
 
 		for (int i = 0; i < t; ++i) {
