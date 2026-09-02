@@ -82,7 +82,7 @@ int input_char(void);
 int procura_vaga(void* lista, size_t tam, char tipo);
 
 struct Individuo {
-	char*		nome;		// Nota: Não tentem escrever nada por cima disso.
+	char		nome[40];		// Nota: Não tentem escrever nada por cima disso.
 	Disciplina*	disciplinas;	// Lista de disciplinas do individuo.
 	unsigned int	n_disciplinas;	// Número de disciplinas do individuo.
 	unsigned int	matricula;	// Matrícula. Também usa pro professor.
@@ -94,8 +94,8 @@ struct Individuo {
 };
 
 struct Disciplina {
-	char*		nome;		// Nome da disciplina.
-	char*		codigo;		// Código da disciplina. Ex: INF029
+	char		nome[40];		// Nome da disciplina.
+	char		codigo[6];		// Código da disciplina. Ex: INF029
 	Individuo*	professor;	// Ponteiro para Professor responsável
 	Individuo*	lista_alunos;	// Lista de alunos matriculados
 };
