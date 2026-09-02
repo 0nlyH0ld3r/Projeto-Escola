@@ -3,7 +3,7 @@
 #include "base_projeto.h"
 
 int main(){
-	struct Individuo listaAlunos[3];
+	Individuo listaAlunos[3];
 
 	int sair = 0;
 	int qtdAlunos = 0;
@@ -17,6 +17,7 @@ int main(){
 		printf("\t4 - Deletar \n");
 
 		scanf("%d", &opcao);
+		clean_buffer();
 
 		switch (opcao){
 			case 0: {
@@ -28,12 +29,10 @@ int main(){
 				puts("Digite o nome:\n");
 				input_string(listaAlunos[qtdAlunos].nome, 100);
 
-				scanf("%c", &listaAlunos[qtdAlunos].genero);
-
-				do {
+				do{
 					puts("Digite gênero (M - Masculino | F - Feminino):");
 					scanf("%c", &listaAlunos[qtdAlunos].genero);
-
+					clean_buffer();
 					if(listaAlunos[qtdAlunos].genero == 'm' || listaAlunos[qtdAlunos].genero == 'm')
 						listaAlunos[qtdAlunos].genero -= 32;
 
@@ -41,9 +40,10 @@ int main(){
 
 				puts("Digite a data de nascimento (DiaMêsAno | DDMMAA):\n");
 				scanf("%d", &listaAlunos[qtdAlunos].nascimento);
-
+				clean_buffer();
 				puts("Digite o CPF:\n");
 				scanf("%d", &listaAlunos[qtdAlunos].cpf);
+				clean_buffer();
 
 				//falta o resto, salvei por que tive que sair
 				qtdAlunos++;
@@ -54,7 +54,7 @@ int main(){
 				printf("Lista Alunos\n");
 
 				for (int i = 0; i < qtdAlunos; i++)
-					printf("");
+					printf("Aluno: %s \n.", listaAlunos[i].nome);
 
 				break;
 			}

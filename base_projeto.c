@@ -14,7 +14,7 @@ void input_string(char* string, size_t tam) {
 	string[strcspn(string, "\n")] = '\0';
 }
 
-int input_char(void) {
+int input_char_non_canon_non_canon(void) {
 	struct termios old_t;
 	tcgetattr(STDIN_FILENO, &old_t);
 	struct termios new_t;

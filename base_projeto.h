@@ -11,7 +11,7 @@
 #endif
 
 #ifndef VAGA_LIVRE
-	#define VAGA_LIVRE	-2
+	#define VAGA_LIVRE	0
 #endif
 
 #ifndef SEM_VAGA 
@@ -27,7 +27,7 @@
 #endif
 
 // Struct do invidivuo: pode ser tanto professor quanto aluno
-typedef struct Individuo Individuo; 
+typedef struct Individuo Individuo; ///MUDAR NOME DA TYPEDEF
 
 // Struct das disciplinas
 typedef struct Disciplina Disciplina;
@@ -83,7 +83,7 @@ int procura_vaga(void* lista, size_t tam, char tipo);
 
 struct Individuo {
 	char		nome[40];		// Nota: Não tentem escrever nada por cima disso.
-	Disciplina*	disciplinas;	// Lista de disciplinas do individuo.
+	Disciplina*	disciplinas[6];	// Lista de disciplinas do individuo.
 	unsigned int	n_disciplinas;	// Número de disciplinas do individuo.
 	unsigned int	matricula;	// Matrícula. Também usa pro professor.
 	unsigned int	nascimento;	// Data de nascimento no padrão DDMMYY.
@@ -97,5 +97,5 @@ struct Disciplina {
 	char		nome[40];		// Nome da disciplina.
 	char		codigo[6];		// Código da disciplina. Ex: INF029
 	Individuo*	professor;	// Ponteiro para Professor responsável
-	Individuo*	lista_alunos;	// Lista de alunos matriculados
+	Individuo*	lista_alunos[40];	// Lista de alunos matriculados
 };
