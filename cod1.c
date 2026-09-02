@@ -17,22 +17,21 @@ int cadastro_disciplina (Disciplina* lista, size_t t);
 
 struct Individuo{
 	char*		nome;		// Nota: Não tentem escrever nada por cima disso.
-	Disciplina*	disciplinas;
-	unsigned int	matricula;
-	unsigned int	nascimento;
-	unsigned int	cpf;
-	unsigned int	n_disciplinas;	// Número de disciplinas do individuo;
-	char		genero;		// F | M
-	char	eh_doscente;
+	Disciplina*	disciplinas;	// Lista de disciplinas do individuo.
+	unsigned int	n_disciplinas;	// Número de disciplinas do individuo.
+	unsigned int	matricula;	// Matrícula. Também usa pro professor.
+	unsigned int	nascimento;	// Data de nascimento no padrão DDMMYY.
+	unsigned int	cpf;		// CPF do indivíduo.
+	char		genero;		// F | M  -> Feminino | Masculino.
+	char		eh_doscente;	// true -> Professor | false -> Aluno.
 	
 };
 
 struct Disciplina {
-	char*		nome;
-	char*		codigo;
-	Individuo*	professor;
-	Individuo*	lista_alunos;
-	unsigned int	nascimento;
+	char*		nome;		// Nome da disciplina.
+	char*		codigo;		// Código da disciplina. Ex: INF029
+	Individuo*	professor;	// Ponteiro para Professor responsável
+	Individuo*	lista_alunos;	// Lista de alunos matriculados
 };
 
 int input_char() {
