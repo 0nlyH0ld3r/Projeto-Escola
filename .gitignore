@@ -1,0 +1,35 @@
+# Arquivos de compilação (Object files)
+*.o
+*.obj
+*.slo
+*.lo
+
+# Arquivos de depuração e símbolos
+*.dSYM/
+*.su
+*.idb
+*.pdb
+
+# Bibliotecas estáticas e dinâmicas
+*.a
+*.lib
+*.so
+*.so.*
+*.dylib
+*.dll
+
+# Logs e arquivos temporários
+*.log
+
+# Pastas comuns de build (Descomente se aplicar ao seu projeto)
+build/
+# bin/
+# out/
+# dist/
+
+# Executáveis genéricos sem extensão (padrão em sistemas Linux/macOS)
+# Caso seus executáveis não tenham extensão, ignore o nome exato deles abaixo:
+main
+app
+*.out
+*.exe
