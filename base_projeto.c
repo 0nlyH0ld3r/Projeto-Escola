@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <termios.h>
-#include "busca_structs.h"
+#include "base_projeto.h"
 
 
 void clean_buffer(void) {
