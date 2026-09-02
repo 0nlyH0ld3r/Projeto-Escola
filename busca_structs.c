@@ -4,17 +4,17 @@
 #include "busca_structs.h"
 
 
-void clean_buffer() {
+void clean_buffer(void) {
 	int c;
-	while ((c = getchar()) != '\n' && c != EOF);
+	do { c = getchar(); } while (  c!= '\n' && c != EOF );
 }
 
-void input_string(char* string, size_t t) {
-	fgets(string, t, stdin);
+void input_string(char* string, size_t tam) {
+	fgets(string, tam, stdin);
 	string[strcspn(string, "\n")] = '\0';
 }
 
-int input_char() {
+int input_char(void) {
 	struct termios old_t;
 	tcgetattr(STDIN_FILENO, &old_t);
 	struct termios new_t;
@@ -29,11 +29,11 @@ int input_char() {
 	return ch;
 }
 
-int procura_vaga (void* lista, size_t t, char tipo) {
+int procura_vaga (void* lista, size_t tam, char tipo) {
 	if (tipo == 'P' || tipo == 'p') {
 		Individuo* p = (Individuo*)lista;
 
-		for (int i = 0; i < t; ++i) {
+		for (int i = 0; i < tam; ++i) {
 			if (p[i].matricula == 0) {
 				return i;
 			}
@@ -43,12 +43,15 @@ int procura_vaga (void* lista, size_t t, char tipo) {
 	else if (tipo == 'D' || tipo == 'd') {
 		Disciplina* p = (Disciplina*)lista;
 
-		for (int i = 0; i < t; ++i) {
+		for (int i = 0; i < tam; ++i) {
 			if (p[i].codigo[0] == '\0') { 
 				return i;
 			}
 		}
 	}
+	else {
+		return TIPO_INVALIDO;
+	}
 
-	return -1;
+	return SEM_ESPAÇO;
 }

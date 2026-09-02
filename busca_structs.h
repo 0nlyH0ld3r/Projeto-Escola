@@ -10,24 +10,79 @@
 	#define false	0
 #endif
 
+#ifndef SEM_ESPAÇO 
+	#define SEM_ESPAÇO	-1 
+#endif
+
+#ifndef TIPO_INVALIDO
+	#define TIPO_INVALIDO	-2
+#endif
+
 // Struct do invidivuo: pode ser tanto professor quanto aluno
 typedef struct Individuo Individuo; 
 
 // Struct das disciplinas
 typedef struct Disciplina Disciplina;
 
-// Função para limpar o buffer de input após outras funções como o scanf() que largam '\n' para trás
-void clean_buffer();
+/** @brief: Limpa o buffer de escrita para remover o caractere '\n' que remanece após certas funções.
+ *
+ *	@par Exemplo:
+ *	scanf("%d", &x);
+ *	clean_buffer();
+ *
+ *	@par @warning:
+ *  Se utilizada após funções que não abandonem o '\n', irá travar o código até que algum input seja fornecido,
+ *  tal qual um getchar() comum.
+ */
+void clean_buffer(void);
 
-// Recebe uma string e seu tamanho máximo, apaga o '\n'
-void input_string(char *string, size_t t);
 
-// Recebe input com ICANON desativado. Input é aceito sem apertar o enter. Retorna o ASCII do caracter.
-int input_char();
+/** @brief Recebe string do usuário t e remove o caractere de nova linha \n do final da string.
+ *
+ *	@par Exemplo:
+ *	input_string(string, 20);
+ *
+ * @param? string	<- Ponteiro pra string que irá receber a entrada.
+ * @param: t		<- Tamanho máximo de string.
+ *
+ */
+void input_string(char *string, size_t tam);
 
-// Recebe ponteiro pra uma lista e o tamanho máximo dela, junto com um tipo 'P' -> Pessoa ou 'D' -> Disciplina
-// Retornar o index da lista onde há uma vaga disponível. Se não há, retorna -1.
-int procura_vaga (void* lista, size_t t, char tipo);
+
+/** @brief: Recebe um caractere, tal qual o getchar(). Entretanto, sem a necessidade de apertar enter pra enviar o caractere.
+ *	@par Exemplo: 
+ *	char variavel = input_char();
+ *
+ *	@par @note:
+ * Desativa o buffer de linha temporariamente para ler um caractere sem o enter para enviar o input.
+ *
+ */
+int input_char(void);
+
+/** @brief: Encontra espaço vazio em uma lista de tamanho t
+ *
+ *	@par Exemplo: 
+ *	int vaga_livre = procura_vaga(lista_aluno, 40, 'P');
+ *	int vaga_professor = procura_vaga(lista_professore, 10, 'P');
+ *	int horario_livre = procura_vaga(lista_disciplinas, 6, 'D');
+ *
+ *
+ * @param: lista - Ponteiro para a lista (Individuo ou Disciplina).
+ * @param: tipo - Tipo da lista ('P' para individuo e 'D' para disciplina).
+ * @param: t - Tamanho máximo da lista
+ *
+ * @return: Index vazio em sucesso, SEM_VAGA se não houver vaga, TIPO_INVALIDO se *tipo* não for 'P' ou 'D'.
+ *
+ * @par @note:
+ * Verifica um vetor (lista) de tamanho fornecido pelo código (tam) procurando por, caso seja um
+ * indivíduo, a sua matrícula, caso seja uma disciplina, o seu código (checa se o primeiro caractere é um \0 ou não).
+ *
+ * @par @note
+ * O objetivo dessa função é retornar o index para um vetor que conterá: Alunos, Professores ou Disciplinas para que
+ * possa ser cadastrado um novo item para o vetor. Caso o vetor esteja cheio (sem espaço para cadastro), irá retornar a
+ * macro de vetor cheio e caso o tipo seja especificado incorretamente, irá retornar a macro de tipo inválido.
+ */
+int procura_vaga(void* lista, size_t tam, char tipo);
 
 struct Individuo {
 	char*		nome;		// Nota: Não tentem escrever nada por cima disso.
