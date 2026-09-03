@@ -10,6 +10,7 @@
 	// Struct das disciplinas
 	typedef struct Disciplina disciplina;
 
+	void cadastrar(individuo* lista, int index);
 
 	struct Individuo {
 		char		nome[MAX_CARACTERE_NOME];		// Nota: Não tentem escrever nada por cima disso.

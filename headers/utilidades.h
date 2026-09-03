@@ -65,6 +65,6 @@
 	 * Desativa o buffer de linha temporariamente para ler um caractere sem o enter para enviar o input.
 	 *
 	 */
-	int input_char(void);
+	int input_char_non_canon(void);
 
 #endif

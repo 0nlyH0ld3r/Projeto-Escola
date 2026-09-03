@@ -3,13 +3,14 @@
 #include "../headers/relatorio.h"
 #include "../headers/escola.h"
 
-#define TAM_LISTA_ALUNOS 3
+#define TAM_LISTA_ALUNOS 5
+#define TAM_LISTA_DISCIPLINAS 3
 
 int main(){
-	individuo listaAlunos[TAM_LISTA_ALUNOS];
+	individuo lista_individuos[TAM_LISTA_ALUNOS];
+	disciplina lista_disciplinas[TAM_LISTA_DISCIPLINAS];
 
 	int sair = 0;
-	int qtdAlunos = 0;
 	int opcao;
 	while(!sair){ //sair == 0
 		printf("Digite a opção: \n\n");
@@ -22,54 +23,36 @@ int main(){
 		scanf_limpo_simples("%d", &opcao);
 
 		switch (opcao){
-			case 0: {
-				sair = 1;
+		case 0:
+			sair = 1;
+			break;
+		
+
+		case 1: // Cadastrar
+			break;
+
+		case 2: // Listar
+			switch (opcao) {
+			case 1:
+				listar_individuos(lista_individuos, TAM_LISTA_ALUNOS);
+				break;
+			case 2:
+				listar_disciplinas(lista_disciplinas, TAM_LISTA_DISCIPLINAS);
 				break;
 			}
 
-			case 1: {
-				puts("Digite o nome:\n");
-				input_string(listaAlunos[qtdAlunos].nome, 100);
+			break;
 
-				do{
-					puts("Digite gênero (M - Masculino | F - Feminino):");
-					scanf_limpo_simples("%c", &listaAlunos[qtdAlunos].genero);
+		case 3: // Atualizar
+			printf("Atualizar");
+			break;
 
-					if(listaAlunos[qtdAlunos].genero == 'm' || listaAlunos[qtdAlunos].genero == 'p')
-						listaAlunos[qtdAlunos].genero -= 32;
+		case 4: // Deletar
+			printf("Deletar");
+			break;
 
-				} while(listaAlunos[qtdAlunos].genero != 'M' && listaAlunos[qtdAlunos].genero != 'F');
-
-				puts("Digite a data de nascimento (DiaMêsAno | DDMMAA):\n");
-				scanf_limpo_simples("%d", &listaAlunos[qtdAlunos].nascimento);
-
-				puts("Digite o CPF:\n");
-				scanf_limpo_simples("%d", &listaAlunos[qtdAlunos].cpf);
-
-				//falta o resto, salvei por que tive que sair
-				qtdAlunos++;
-				break;
-			}
-				
-			case 2: {
-				printf("Lista Alunos\n");
-				listar_individuos(listaAlunos, TAM_LISTA_ALUNOS);
-				break;
-			}
-
-			case 3: {
-				printf("Atualizar");
-				break;
-			}
-
-			case 4: {
-				printf("Deletar");
-				break;
-			}
-
-			default: { 
-				printf("Opção Inválida");
-			}
+		default: 
+			puts("Opção Inválida");
 		}
 	}
 }
