@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include "../headers/escola.h"
+#include "../headers/relatorio.h"
 
 void listar_individuos(individuo* lista, size_t tam) {
 	for (int i = 0; i < tam; ++i) {
