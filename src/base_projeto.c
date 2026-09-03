@@ -31,7 +31,7 @@ int input_char_non_canon_non_canon(void) {
 
 int procura_vaga (void* lista, size_t tam, char tipo) {
 	if (tipo == 'P' || tipo == 'p') {
-		Individuo* p = (Individuo*)lista;
+		individuo* p = (individuo*)lista;
 
 		for (int i = 0; i < tam; ++i) {
 			if (p[i].matricula == VAGA_LIVRE) {
@@ -41,7 +41,7 @@ int procura_vaga (void* lista, size_t tam, char tipo) {
 	}
 
 	else if (tipo == 'D' || tipo == 'd') {
-		Disciplina* p = (Disciplina*)lista;
+		disciplina* p = (disciplina*)lista;
 
 		for (int i = 0; i < tam; ++i) {
 			if (p[i].codigo[0] == VAGA_LIVRE) { 
