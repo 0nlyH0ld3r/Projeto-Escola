@@ -5,10 +5,10 @@
 	#define _BASE_PROJECT
 
 	// Struct do invidivuo: pode ser tanto professor quanto aluno
-	typedef struct Individuo Individuo; ///MUDAR NOME DA TYPEDEF
+	typedef struct Individuo individuo; ///MUDAR NOME DA TYPEDEF
 
 	// Struct das disciplinas
-	typedef struct Disciplina Disciplina;
+	typedef struct Disciplina disciplina;
 
 	/** @brief Limpa o buffer de escrita para remover o caractere de quebra de linha que remanece após certas funções.
 	 *
@@ -61,7 +61,7 @@
 
 	struct Individuo {
 		char		nome[MAX_CARACTERE_NOME];		// Nota: Não tentem escrever nada por cima disso.
-		Disciplina*	disciplinas[MAX_DISCIPLINAS];	// Lista de disciplinas do individuo.
+		disciplina*	disciplinas[MAX_DISCIPLINAS];	// Lista de disciplinas do individuo.
 		unsigned int	n_disciplinas;	// Número de disciplinas do individuo.
 		unsigned int	matricula;	// Matrícula. Também usa pro professor.
 		unsigned int	nascimento;	// Data de nascimento no padrão DDMMYY.
@@ -74,8 +74,8 @@
 	struct Disciplina {
 		char		nome[MAX_CARACTERE_NOME];		// Nome da disciplina.
 		char		codigo[MAX_CHAR_COD_DISCIPLINA];		// Código da disciplina. Ex: INF029
-		Individuo*	professor;	// Ponteiro para Professor responsável
-		Individuo*	lista_alunos[MAX_NUMERO_ALUNOS];	// Lista de alunos matriculados
+		individuo*	professor;	// Ponteiro para Professor responsável
+		individuo*	lista_alunos[MAX_NUMERO_ALUNOS];	// Lista de alunos matriculados
 	};
 
 #endif
