@@ -35,26 +35,26 @@
         └──  app
 ### Lógica Proposta   
 
-main
- │
- ▼
-menu -> utilidades
- │
- ├──────────────► escola -> utilidades
- │                    │
- │                    └──► retorna ao menu
- │
- ├──────────────► relatorios -> utilidades
- │                    │
- │                    └──► retorna ao menu
- │
- └──────────────► sair
-                      │
-                      ▼
-                     main
-                      │
-                      ▼
-                     fim
+    main
+     │
+     ▼
+    menu -> utilidades
+     │
+     ├──────────────► escola -> utilidades
+     │                    │
+     │                    └──► retorna ao menu
+     │
+     ├──────────────► relatorios -> utilidades
+     │                    │
+     │                    └──► retorna ao menu
+     │
+     └──────────────► sair
+                          │
+                          ▼
+                         main
+                          │
+                          ▼
+                         fim
     
 ## Alunos
  - Bruno Vinicius
