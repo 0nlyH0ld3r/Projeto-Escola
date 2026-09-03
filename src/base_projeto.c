@@ -44,7 +44,7 @@ int procura_vaga (void* lista, size_t tam, char tipo) {
 		Disciplina* p = (Disciplina*)lista;
 
 		for (int i = 0; i < tam; ++i) {
-			if (p[i].codigo[0] == HORARIO_VAGO) { 
+			if (p[i].codigo[0] == VAGA_LIVRE) { 
 				return i;
 			}
 		}
