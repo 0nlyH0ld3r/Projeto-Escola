@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <string.h>
-#include "base_projeto.h"
+#include "../headers/base_projeto.h"
 
 int main(){
 	Individuo listaAlunos[3];

@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "base_projeto.h"
+#include "../headers/base_projeto.h"
 
 void listar_individuos(Individuo* lista, size_t tam) {
 	for (int i = 0; i < tam; ++i) {
