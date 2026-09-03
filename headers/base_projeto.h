@@ -1,30 +1,5 @@
+#include "constants.h"
 #include <unistd.h>
-
-// Definindo macros para true e false caso não estejam definidas
-// usando #ifndef (if not defined).
-#ifndef true 
-	#define true 1 
-#endif
-
-#ifndef false
-	#define false	0
-#endif
-
-#ifndef VAGA_LIVRE
-	#define VAGA_LIVRE	0
-#endif
-
-#ifndef SEM_VAGA 
-	#define SEM_VAGA	-1 
-#endif
-
-#ifndef HORARIO_VAGO
-	#define HORARIO_VAGO	'\0'
-#endif
-
-#ifndef TIPO_INVALIDO
-	#define TIPO_INVALIDO	-2
-#endif
 
 // Struct do invidivuo: pode ser tanto professor quanto aluno
 typedef struct Individuo Individuo; ///MUDAR NOME DA TYPEDEF
@@ -82,8 +57,8 @@ int input_char(void);
 int procura_vaga(void* lista, size_t tam, char tipo);
 
 struct Individuo {
-	char		nome[40];		// Nota: Não tentem escrever nada por cima disso.
-	Disciplina*	disciplinas[6];	// Lista de disciplinas do individuo.
+	char		nome[MAX_CARACTERE_NOME];		// Nota: Não tentem escrever nada por cima disso.
+	Disciplina*	disciplinas[MAX_DISCIPLINAS];	// Lista de disciplinas do individuo.
 	unsigned int	n_disciplinas;	// Número de disciplinas do individuo.
 	unsigned int	matricula;	// Matrícula. Também usa pro professor.
 	unsigned int	nascimento;	// Data de nascimento no padrão DDMMYY.
@@ -94,8 +69,8 @@ struct Individuo {
 };
 
 struct Disciplina {
-	char		nome[40];		// Nome da disciplina.
-	char		codigo[6];		// Código da disciplina. Ex: INF029
+	char		nome[MAX_CARACTERE_NOME];		// Nome da disciplina.
+	char		codigo[MAX_CHAR_COD_DISCIPLINA];		// Código da disciplina. Ex: INF029
 	Individuo*	professor;	// Ponteiro para Professor responsável
-	Individuo*	lista_alunos[40];	// Lista de alunos matriculados
+	Individuo*	lista_alunos[MAX_NUMERO_ALUNOS];	// Lista de alunos matriculados
 };
