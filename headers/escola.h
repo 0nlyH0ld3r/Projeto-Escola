@@ -45,7 +45,7 @@
 		unsigned int	cpf;		// CPF do indivíduo.
 		char		genero;		// F | M  -> Feminino | Masculino.
 		char		eh_doscente;	// true -> Professor | false -> Aluno.
-		char		estado;		// NAO_ATIVO <- Vala livre pra matricula
+		char		estado;		// NAO_ATIVO <- Vaga livre pra uso
 		
 	};
 
@@ -55,6 +55,7 @@
 		char		codigo[MAX_CHAR_COD_DISCIPLINA];		// Código da disciplina. Ex: INF029
 		individuo*	professor;	// Ponteiro para Professor responsável
 		individuo*	lista_alunos[MAX_NUMERO_ALUNOS];	// Lista de alunos matriculados
+		char		estado;		// NAO_ATIVO <- Vaga livre pra uso
 	};
 
 #endif

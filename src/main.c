@@ -1,6 +1,6 @@
 #include <stdio.h>
-#include "../headers/funcoes_input.h"
-#include "../headers/base_projeto.h"
+#include "../headers/utilidades.h"
+#include "../headers/escola.h"
 
 #define TAM_LISTA_ALUNOS 3
 

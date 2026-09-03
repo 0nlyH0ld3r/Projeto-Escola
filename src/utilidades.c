@@ -1,4 +1,4 @@
-#include "../headers/funcoes_input.c"
+#include "../headers/utilidades.h"
 #include <stdio.h>
 #include <string.h>
 #include <termios.h>
