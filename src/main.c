@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include "../headers/utilidades.h"
+#include "../headers/relatorio.h"
 #include "../headers/escola.h"
 
 #define TAM_LISTA_ALUNOS 3
@@ -18,8 +19,7 @@ int main(){
 		printf("\t3 - Atualizar \n");
 		printf("\t4 - Deletar \n");
 
-		scanf("%d", &opcao);
-		clean_buffer();
+		scanf_limpo_simples("%d", &opcao);
 
 		switch (opcao){
 			case 0: {
@@ -33,8 +33,7 @@ int main(){
 
 				do{
 					puts("Digite gênero (M - Masculino | F - Feminino):");
-					scanf("%c", &listaAlunos[qtdAlunos].genero);
-					clean_buffer();
+					scanf_limpo_simples("%c", &listaAlunos[qtdAlunos].genero);
 
 					if(listaAlunos[qtdAlunos].genero == 'm' || listaAlunos[qtdAlunos].genero == 'p')
 						listaAlunos[qtdAlunos].genero -= 32;
@@ -42,12 +41,10 @@ int main(){
 				} while(listaAlunos[qtdAlunos].genero != 'M' && listaAlunos[qtdAlunos].genero != 'F');
 
 				puts("Digite a data de nascimento (DiaMêsAno | DDMMAA):\n");
-				scanf("%d", &listaAlunos[qtdAlunos].nascimento);
-				clean_buffer();
+				scanf_limpo_simples("%d", &listaAlunos[qtdAlunos].nascimento);
 
 				puts("Digite o CPF:\n");
-				scanf("%d", &listaAlunos[qtdAlunos].cpf);
-				clean_buffer();
+				scanf_limpo_simples("%d", &listaAlunos[qtdAlunos].cpf);
 
 				//falta o resto, salvei por que tive que sair
 				qtdAlunos++;
