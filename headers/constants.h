@@ -1,45 +1,38 @@
 #ifndef _CONSTANTS
-    #define _CONSTANTS
+	#define _CONSTANTS
 
-    // Definindo macros para true e false caso não estejam definidas
-    // usando #ifndef (if not defined).
+	// Definindo macros para true e false caso não estejam definidas
+	// usando #ifndef (if not defined).
 
-    #ifndef true 
-        #define true 1 
-    #endif
+	#ifndef true 
+	#define true		1 
+	#endif
 
-    #ifndef false
-        #define false	0
-    #endif
+	#ifndef false
+	#define false		0
+	#endif
 
-    #ifndef NAO_ATIVO 
-        #define NAO_ATIVO 0
-    #endif
+	enum Status {
+		LISTA_CHEIA =	-1,
+		TIPO_INVALIDO =	-2,
+		NAO_ATIVO =	0,
+	};
 
-    #ifndef SEM_VAGA 
-        #define SEM_VAGA	-1 
-    #endif
+	///MAXIMOS VALORES PARA TAMANHO DOS VETORES
+	#ifndef MAX_NUMERO_ALUNOS 
+	#define MAX_NUMERO_ALUNOS 40
+	#endif
 
-    #ifndef TIPO_INVALIDO
-        #define TIPO_INVALIDO	-2
-    #endif
+	#ifndef MAX_CARACTERE_NOME 
+	#define MAX_CARACTERE_NOME 40
+	#endif
 
-    ///MAXIMOS VALORES PARA TAMANHO DOS VETORES
-    #ifndef MAX_NUMERO_ALUNOS 
-        #define MAX_NUMERO_ALUNOS 40
-    #endif
+	#ifndef MAX_DISCIPLINAS 
+	#define MAX_DISCIPLINAS	 6
+	#endif
 
-    #ifndef MAX_CARACTERE_NOME 
-        #define MAX_CARACTERE_NOME 40
-    #endif
-
-    #ifndef MAX_DISCIPLINAS 
-        #define MAX_DISCIPLINAS 6
-    #endif
-
-    #ifndef MAX_CHAR_COD_DISCIPLINA 
-        #define MAX_CHAR_COD_DISCIPLINA 6
-    #endif
-
+	#ifndef MAX_CHAR_COD_DISCIPLINA 
+	#define MAX_CHAR_COD_DISCIPLINA 6
+	#endif
 
 #endif
