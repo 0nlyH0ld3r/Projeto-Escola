@@ -1,5 +1,7 @@
+#include <unistd.h>
+
 #ifndef _CONSTANTS
-    #include <unistd.h>
+    #define _CONSTANTS
 
     // Definindo macros para true e false caso não estejam definidas
     // usando #ifndef (if not defined).
