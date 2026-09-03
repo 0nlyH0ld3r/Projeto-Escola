@@ -2,8 +2,10 @@
 #include "../headers/funcoes_input.h"
 #include "../headers/base_projeto.h"
 
+#define TAM_LISTA_ALUNOS 3
+
 int main(){
-	individuo listaAlunos[3];
+	individuo listaAlunos[TAM_LISTA_ALUNOS];
 
 	int sair = 0;
 	int qtdAlunos = 0;
@@ -33,7 +35,8 @@ int main(){
 					puts("Digite gênero (M - Masculino | F - Feminino):");
 					scanf("%c", &listaAlunos[qtdAlunos].genero);
 					clean_buffer();
-					if(listaAlunos[qtdAlunos].genero == 'm' || listaAlunos[qtdAlunos].genero == 'm')
+
+					if(listaAlunos[qtdAlunos].genero == 'm' || listaAlunos[qtdAlunos].genero == 'p')
 						listaAlunos[qtdAlunos].genero -= 32;
 
 				} while(listaAlunos[qtdAlunos].genero != 'M' && listaAlunos[qtdAlunos].genero != 'F');
@@ -41,6 +44,7 @@ int main(){
 				puts("Digite a data de nascimento (DiaMêsAno | DDMMAA):\n");
 				scanf("%d", &listaAlunos[qtdAlunos].nascimento);
 				clean_buffer();
+
 				puts("Digite o CPF:\n");
 				scanf("%d", &listaAlunos[qtdAlunos].cpf);
 				clean_buffer();
@@ -52,10 +56,7 @@ int main(){
 				
 			case 2: {
 				printf("Lista Alunos\n");
-
-				for (int i = 0; i < qtdAlunos; i++)
-					printf("Aluno: %s \n.", listaAlunos[i].nome);
-
+				listar_individuos(listaAlunos, TAM_LISTA_ALUNOS);
 				break;
 			}
 
