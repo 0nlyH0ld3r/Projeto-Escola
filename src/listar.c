@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "../headers/base_projeto.h"
 
-void listar_individuos(Individuo* lista, size_t tam) {
+void listar_individuos(individuo* lista, size_t tam) {
 	for (int i = 0; i < tam; ++i) {
 		if (lista[i].matricula == VAGA_LIVRE) continue;
 
@@ -19,7 +19,7 @@ void listar_individuos(Individuo* lista, size_t tam) {
 	}
 }
 
-void listar_disciplinas(Disciplina* lista, size_t tam) {
+void listar_disciplinas(disciplina* lista, size_t tam) {
 	for (int i = 0; i < tam; ++i) {
 		if (lista[i].codigo[0] == VAGA_LIVRE) continue;
 		printf("Nome da disciplina: %s\n", lista[i].nome);

@@ -1,9 +1,9 @@
 #include <stdio.h>
-#include <string.h>
+#include "../headers/funcoes_input.h"
 #include "../headers/base_projeto.h"
 
 int main(){
-	Individuo listaAlunos[3];
+	individuo listaAlunos[3];
 
 	int sair = 0;
 	int qtdAlunos = 0;

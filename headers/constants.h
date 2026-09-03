@@ -1,5 +1,3 @@
-#include <unistd.h>
-
 #ifndef _CONSTANTS
     #define _CONSTANTS
 
@@ -14,8 +12,8 @@
         #define false	0
     #endif
 
-    #ifndef VAGA_LIVRE
-        #define VAGA_LIVRE	0
+    #ifndef NAO_ATIVO 
+        #define NAO_ATIVO 0
     #endif
 
     #ifndef SEM_VAGA 
@@ -42,5 +40,6 @@
     #ifndef MAX_CHAR_COD_DISCIPLINA 
         #define MAX_CHAR_COD_DISCIPLINA 6
     #endif
+
 
 #endif
