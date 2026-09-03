@@ -4,7 +4,15 @@
 #include <termios.h>
 
 
-void clean_buffer(void) {
+void scanf_limpo_simples(char* format, void* variavel) {
+	if (compara_strings(format, "%d")) {
+		scanf("%d", (int *)variavel );
+	}
+
+	else if (compara_strings(format, "%f")) {
+		scanf("%f", (float *)variavel );
+	}
+
 	int c;
 	do { c = getchar(); } while (  c!= '\n' && c != EOF );
 }
@@ -14,7 +22,11 @@ void input_string(char* string, size_t tam) {
 	string[strcspn(string, "\n")] = '\0';
 }
 
-int input_char_non_canon_non_canon(void) {
+int compara_strings(const char* string1, const char* string2) {
+	return !strcmp(string1, string2);
+}
+
+int input_char_non_canon(void) {
 	struct termios old_t;
 	tcgetattr(STDIN_FILENO, &old_t);
 	struct termios new_t;

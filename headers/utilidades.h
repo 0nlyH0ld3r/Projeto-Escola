@@ -3,6 +3,28 @@
 #ifndef _INPUT_FUNCTIONS
 	#define _INPUT_FUNCTIONS
 
+
+
+	/**
+	 * @brief É uma skin do strcmp() que retorna true pra verdadeiro e false pra falso
+	 */
+	int compara_strings(const char* string1, const char* string2);
+
+	/** @brief Recebe int ou float e limpa o buffer após o input. 
+	 *
+	 * @par @warning 
+	 * É uma função simples pensada para receber somente uma variável por vez.
+	 * @par
+	 * @param format <- A formatação,tal qual em um scanf() comum, será uma string com os tipos ("%d").
+	 * @param variavel <- Um ponteiro para a variável a receber o input.
+	 *
+	 * @par @note
+	 * Recebe uma string de formatação e um ponteiro (ponteiro vazio) para uma variável.
+	 * A depender do tipo especificado na formatação ("%d" ou "%f"), 
+	 * irá realizar um typecast no ponteiro vazio (variavel) para receber ou um integer ou um float.
+	 */
+	void scanf_limpo_simples(char* format, void* variavel);
+
 	/** @brief Encontra espaço vazio em uma lista de tamanho t
 	 *
 	 * @param lista - Ponteiro para a lista (Individuo ou Disciplina).
@@ -26,13 +48,6 @@
 	 */
 	int procura_vaga(void* lista, size_t tam, char tipo);
 
-	/** @brief Limpa o buffer de escrita para remover o caractere de quebra de linha que remanece após certas funções.
-	 *
-	 *	@par @warning
-	 *  Se utilizada após funções que não abandonem o caractere de quebra de linha, irá travar o código até que algum input seja fornecido,
-	 *  tal qual um getchar() comum.
-	 */
-	void clean_buffer(void);
 
 
 	/** @brief Recebe string do usuário t e remove o caractere de nova linha \n do final da string.
