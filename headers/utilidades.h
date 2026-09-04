@@ -67,4 +67,6 @@
 	 */
 	int input_char_non_canon(void);
 
+	int destrincha_nascimento(int data_nascimento, char DMA);
+
 #endif

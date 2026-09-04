@@ -58,7 +58,6 @@ int procura_vaga (void* lista, size_t tam, char tipo) {
 
 int destrincha_nascimento(int data_nascimento, char DMA) {
 	switch (DMA) {
-
 	case 'D':
 		return data_nascimento / 10000;
 

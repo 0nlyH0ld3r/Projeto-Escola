@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include "../headers/escola.h"
+#include "../headers/utilidades.h"
 #include "../headers/relatorio.h"
 
 void listar_individuos(individuo* lista, size_t tam, ordenar ordenacao) {
