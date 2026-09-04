@@ -10,19 +10,19 @@ void listar_individuos(individuo* lista, size_t tam, ordenar ordenacao) {
 	ordenacao(buff_lista, tam);
 
 	for (int i = 0; i < tam; ++i) {
-		if (lista[i].estado == NAO_ATIVO) continue;
+		if (buff_lista[i].estado == NAO_ATIVO) continue;
 
-		if (lista[i].eh_doscente == true)	printf("Professor: %s", lista[i].nome);
-		else					printf("Aluno: %s", lista[i].nome);
+		if (buff_lista[i].eh_doscente == true)	printf("Professor: %s", buff_lista[i].nome);
+		else					printf("Aluno: %s", buff_lista[i].nome);
 
-		printf("CPF: %d\n", lista[i].cpf);
-		printf("Data de Nascimento: %d %d %d",	(lista[i].nascimento / 10000),
-							((lista[i].nascimento % 10000) / 100), 
-							(lista[i].nascimento % 100) );
+		printf("CPF: %d\n", buff_lista[i].cpf);
+		printf("Data de Nascimento: %d %d %d",	(buff_lista[i].nascimento / 10000),
+							((buff_lista[i].nascimento % 10000) / 100), 
+							(buff_lista[i].nascimento % 100) );
 
-		printf("Gênero: %s\n", lista[i].genero == 'M' ? "Masculino" : "Feminino");
-		printf("Matricula: %d\n", lista[i].matricula);
-		printf("Número de disciplinas: %d\n", lista[i].n_disciplinas);
+		printf("Gênero: %s\n", buff_lista[i].genero == 'M' ? "Masculino" : "Feminino");
+		printf("Matricula: %d\n", buff_lista[i].matricula);
+		printf("Número de disciplinas: %d\n", buff_lista[i].n_disciplinas);
 		puts("\n\n");
 	}
 }
@@ -52,8 +52,24 @@ void ordenar_nascimento(individuo* buff_lista, size_t tam) {
 		while (tmp.nascimento % 100 < buff_lista[j - 1].nascimento % 100 && j > 0) {
 			tmp = buff_lista[i];
 			buff_lista[j - 1] = buff_lista[j];
+
 			--j;
+
 			continue;
+		}
+
+		while (tmp.nascimento % 100 == buff_lista[j - 1].nascimento % 100 && j > 0) {
+			if (tmp.nascimento % 10000 / 100 < buff_lista[j - 1].nascimento % 10000 / 100) {
+				tmp = buff_lista[i];
+				buff_lista[j - 1] = buff_lista[j];
+
+				--j;
+
+				continue;
+			}
+			else {
+				break;
+			}
 		}
 
 		buff_lista[j] = tmp;
