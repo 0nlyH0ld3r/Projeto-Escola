@@ -19,6 +19,7 @@ void listar_individuos(individuo* lista, size_t tam, ordenar ordenacao) {
 		printf("Data de Nascimento: %d %d %d",	(lista[i].nascimento / 10000),
 							((lista[i].nascimento % 10000) / 100), 
 							(lista[i].nascimento % 100) );
+
 		printf("Gênero: %s\n", lista[i].genero == 'M' ? "Masculino" : "Feminino");
 		printf("Matricula: %d\n", lista[i].matricula);
 		printf("Número de disciplinas: %d\n", lista[i].n_disciplinas);
@@ -47,12 +48,14 @@ void ordenar_nascimento(individuo* buff_lista, size_t tam) {
 	for (int i = 1; i < tam; ++i) {
 		individuo tmp = buff_lista[i];
 		int j = i;
-		while (tmp.nascimento < buff_lista[j - 1].nascimento && j > 0) {
+
+		while (tmp.nascimento % 100 < buff_lista[j - 1].nascimento % 100 && j > 0) {
 			tmp = buff_lista[i];
 			buff_lista[j - 1] = buff_lista[j];
 			--j;
 			continue;
 		}
+
 		buff_lista[j] = tmp;
 	}
 }
