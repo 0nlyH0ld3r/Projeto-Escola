@@ -1,4 +1,6 @@
 #include "../headers/utilidades.h"
+#include "../headers/constants.h"
+#include "../headers/escola.h"
 #include <stdio.h>
 #include <string.h>
 #include <termios.h>
@@ -24,6 +26,34 @@ void input_string(char* string, size_t tam) {
 
 int compara_strings(const char* string1, const char* string2) {
 	return !strcmp(string1, string2);
+}
+
+int procura_vaga (void* lista, size_t tam, char tipo) {
+	if (tipo == 'P' || tipo == 'p') {
+		individuo* p = (individuo*)lista;
+
+		for (int i = 0; i < tam; ++i) {
+			if (p[i].matricula == NAO_ATIVO) {
+				return i;
+			}
+		}
+	}
+
+	else if (tipo == 'D' || tipo == 'd') {
+		disciplina* p = (disciplina*)lista;
+
+		for (int i = 0; i < tam; ++i) {
+			if (p[i].codigo[0] == NAO_ATIVO) { 
+				return i;
+			}
+		}
+	}
+
+	else {
+		return TIPO_INVALIDO;
+	}
+
+	return LISTA_CHEIA;
 }
 
 int input_char_non_canon(void) {
