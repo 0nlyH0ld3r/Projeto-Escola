@@ -10,13 +10,15 @@
 	 * tal qual as funções de ordenação que serão criadas agora.
 	 * @par note
 	 * void (*nome_ponteiro)(tipo_parâmetros_recebidos);
+	 * @par @warning
+	 * Em funções que recebam parâmetros do tipo ordenar (que seria uma função de 
+	 * ordenação), é possível passar NULL caso não deseje ordenar nada.
 	 */
 	typedef void (*ordenar)(individuo*, size_t);
 
 	void listar_individuos(individuo* lista, size_t tam, ordenar ordenacao);
 
-	void listar_disciplinas(disciplina* lista, size_t tam, 
-				ordenar ordenacao);
+	void listar_disciplinas(disciplina* lista, size_t tam, ordenar ordenacao);
 
 	void ordenar_nascimento(individuo* buff_lista, size_t tam);
 #endif
