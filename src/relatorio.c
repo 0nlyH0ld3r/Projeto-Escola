@@ -62,8 +62,3 @@ void ordenar_nascimento(individuo* buff_lista, size_t tam) {
 	}
 }
 
-int main(void) {
-	individuo lista[3];
-	cadastrar(lista, procura_vaga(lista, 3, 'p'));
-	listar_individuos(lista, 3, NULL);
-}
