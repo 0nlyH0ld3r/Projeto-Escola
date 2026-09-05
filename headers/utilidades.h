@@ -1,7 +1,7 @@
 #include <unistd.h>
 
 #ifndef _INPUT_FUNCTIONS
-	#define _INPUT_FUNCTIONS
+#define _INPUT_FUNCTIONS
 
 
 

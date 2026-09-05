@@ -1,5 +1,5 @@
 #ifndef _CONSTANTS
-	#define _CONSTANTS
+#define _CONSTANTS
 
 	// Definindo macros para true e false caso não estejam definidas
 	// usando #ifndef (if not defined).
@@ -20,20 +20,50 @@
 	};
 
 	///MAXIMOS VALORES PARA TAMANHO DOS VETORES
-	#ifndef MAX_NUMERO_ALUNOS 
-	#define MAX_NUMERO_ALUNOS 40
-	#endif
-
-	#ifndef MAX_CARACTERE_NOME 
+	#define MAX_ALUNOS_ESCOLA 5
+	#define MAX_DISCIPLINAS_ESCOLA 2
+	#define MAX_PROFESSORES_ESCOLA 2
+	#define MAX_NUMERO_ALUNOS_DISCIPLINA 3
 	#define MAX_CARACTERE_NOME 40
-	#endif
-
-	#ifndef MAX_DISCIPLINAS 
-	#define MAX_DISCIPLINAS	 6
-	#endif
-
-	#ifndef MAX_CHAR_COD_DISCIPLINA 
+	
+	#define MAX_DISCIPLINAS_INDIVIDUO	 2
 	#define MAX_CHAR_COD_DISCIPLINA 6
-	#endif
+
+
+	// Struct do invidivuo: pode ser tanto professor quanto aluno
+	typedef struct Individuo individuo; ///MUDAR NOME DA TYPEDEF
+
+	// Struct das disciplinas
+	typedef struct Disciplina disciplina;
+
+	typedef struct Escola escola;
+
+	struct Escola{
+		disciplina* disciplinas[MAX_DISCIPLINAS_ESCOLA];
+		individuo* professores[MAX_PROFESSORES_ESCOLA];
+		individuo* alunos[MAX_ALUNOS_ESCOLA];
+	};
+	struct Individuo {
+		char		nome[MAX_CARACTERE_NOME];		// Nota: Não tentem escrever nada por cima disso.
+		disciplina*	disciplinas[MAX_DISCIPLINAS_INDIVIDUO];	// Lista de disciplinas do individuo.
+		unsigned int	n_disciplinas;	// Número de disciplinas do individuo.
+		unsigned int	matricula;	// Matrícula. Também usa pro professor.
+		unsigned int	nascimento;	// Data de nascimento no padrão DDMMYY.
+		unsigned int	cpf;		// CPF do indivíduo.
+		char		genero;		// F | M  -> Feminino | Masculino.
+		char		eh_doscente;	// true -> Professor | false -> Aluno.
+		char		estado;		// NAO_ATIVO <- Vaga livre pra uso
+		
+	};
+
+
+	struct Disciplina {
+		char		nome[MAX_CARACTERE_NOME];		// Nome da disciplina.
+		char		codigo[MAX_CHAR_COD_DISCIPLINA];		// Código da disciplina. Ex: INF029
+		individuo*	professor;	// Ponteiro para Professor responsável
+		individuo*	lista_alunos[MAX_NUMERO_ALUNOS_DISCIPLINA];	// Lista de alunos matriculados
+		char		estado;		// NAO_ATIVO <- Vaga livre pra uso
+	};
+	
 
 #endif
