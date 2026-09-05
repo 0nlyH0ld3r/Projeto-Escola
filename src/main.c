@@ -19,12 +19,12 @@ void inicia_escola(int teste){
 /// @brief main
 /// @param  void
 /// @return void
-// int main(int argc){
-//     if (argc > 1) {
-//     inicia_escola(DEBUG);
-//     return 0;        
-//     }
-//     inicia_escola(false);
-//     return 0;
-// }
-//
+int main(int argc){
+    if (argc > 1) {
+    inicia_escola(DEBUG);
+    return 0;        
+    }
+    inicia_escola(false);
+    return 0;
+}
+
