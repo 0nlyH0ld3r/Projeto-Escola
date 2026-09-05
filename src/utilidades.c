@@ -57,24 +57,13 @@ int procura_vaga (void* lista, size_t tam, char tipo) {
 }
 
 int destrincha_nascimento(int data_nascimento, char DMA) {
-	switch (DMA) {
-	case 'D':
-		return data_nascimento / 10000;
-
-	case 'M':
-		return (data_nascimento % 10000) / 100;
-
-	case 'A':
-		return data_nascimento % 100;
-	}
-
 	return 0;
 }
 
 int input_char_non_canon(void) {
 	struct termios old_t;
 	tcgetattr(STDIN_FILENO, &old_t);
-	struct termios new_t;
+	struct termios new_t = old_t;
 	new_t.c_lflag &= ~(ICANON);
 
 	tcsetattr(STDIN_FILENO, TCSANOW, &new_t );

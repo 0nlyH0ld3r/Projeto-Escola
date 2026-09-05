@@ -38,3 +38,10 @@ void cadastrar(individuo* lista, int index) {
 	lista[index].n_disciplinas = 0;
 }
 
+void inicializar_individuo(individuo* lista, unsigned int tam) {
+	for (int i = 0; i < tam; ++i) {
+	lista[i].estado = NAO_ATIVO;
+	}
+
+}
+

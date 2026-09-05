@@ -6,9 +6,9 @@
 
 void listar_individuos(individuo* lista, size_t tam, ordenar ordenacao) {
 	individuo buff_lista[tam];	// Buffer para o sort da função ordenacao
-	memcpy(buff_lista, lista, tam); // Copia os dados de lista em buff_lista
+	memcpy(buff_lista, lista, sizeof(individuo) * tam); // Copia os dados de lista em buff_lista
 
-	ordenacao(buff_lista, tam);
+	if (ordenacao != NULL) ordenacao(buff_lista, tam); // Passar NULL caso não deseje ordenar
 
 	for (int i = 0; i < tam; ++i) {
 		if (buff_lista[i].estado == NAO_ATIVO) continue;
@@ -58,21 +58,12 @@ void ordenar_nascimento(individuo* buff_lista, size_t tam) {
 
 			continue;
 		}
-
-		while (tmp.nascimento % 100 == buff_lista[j - 1].nascimento % 100 && j > 0) {
-			if (tmp.nascimento % 10000 / 100 < buff_lista[j - 1].nascimento % 10000 / 100) {
-				tmp = buff_lista[i];
-				buff_lista[j - 1] = buff_lista[j];
-
-				--j;
-
-				continue;
-			}
-			else {
-				break;
-			}
-		}
-
 		buff_lista[j] = tmp;
 	}
+}
+
+int main(void) {
+	individuo lista[3];
+	cadastrar(lista, procura_vaga(lista, 3, 'p'));
+	listar_individuos(lista, 3, NULL);
 }
